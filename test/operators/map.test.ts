@@ -58,8 +58,6 @@ describe('map', () => {
       )
     );
 
-    chain.then(value => console.log('A VALUE OCCURED: ', value));
-
     expect(chain).resolves.toEqual(expected);
   });
 });

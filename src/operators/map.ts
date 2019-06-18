@@ -5,7 +5,7 @@ interface MapperFunc<U> {
 }
 
 export function map(mapper: MapperFunc<any>): Function {
-  function pipeableApply(this: any, data: any): any | Promise<any> {
+  return function pipeableApply(this: any, data: any): any | Promise<any> {
     function getResult(data: any) {
       if (Array.isArray(data)) {
         return data.map(mapper);
@@ -14,7 +14,5 @@ export function map(mapper: MapperFunc<any>): Function {
     }
 
     return isPiped(this) ? getResult(data) : Promise.resolve(getResult(data));
-  }
-
-  return pipeableApply;
+  };
 }
