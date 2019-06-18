@@ -30,7 +30,7 @@ describe('tap', () => {
     const initial = 100;
     const expected = 100;
 
-    tap(increaseCounter)(initial).then(val => {
+    tap(increaseCounter)(initial).then((val: number) => {
       expect(val).toBe(expected);
     });
   });

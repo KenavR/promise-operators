@@ -4,7 +4,9 @@ interface MapperFunc<U> {
   (value: any, index?: number, array?: any[]): U;
 }
 
-export function map(mapper: MapperFunc<any>): Function {
+export function map(
+  mapper: MapperFunc<any>
+): (data: any) => any | Promise<any> {
   return function pipeableApply(this: any, data: any): any | Promise<any> {
     function getResult(data: any) {
       if (Array.isArray(data)) {
