@@ -37,11 +37,13 @@ describe('map', () => {
 
     const initial = [1, 2, 3];
     const expected = [2, 3, 4];
-    const pipeContext = { piped: true };
+    const pipeContext = { piped: true, chain: [] };
 
     const pipedMap = map(addOne).bind(pipeContext);
+    const result = pipedMap(initial);
 
-    expect(pipedMap(initial)).toEqual(expected);
+    // console.log('RESULT:::: ', result);
+    expect(result).toEqual(expected);
   });
 
   it('should work inside pipe', () => {
