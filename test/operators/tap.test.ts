@@ -1,10 +1,5 @@
 import { map, pipe, tap } from '../../src';
 
-interface Fullname {
-  firstname: string;
-  lastname: string;
-}
-
 describe('tap', () => {
   it('should apply side effect', () => {
     let counter = 0;
@@ -44,7 +39,7 @@ describe('tap', () => {
 
     const initial = [1, 2, 3];
     const expected = [1, 2, 3];
-    const pipeContext = { piped: true };
+    const pipeContext = { piped: true, chain: [] };
 
     const pipedTap = tap(increaseCounter).bind(pipeContext);
 
