@@ -1,12 +1,8 @@
 import { isPiped } from '../utils';
+import { PipedContext } from '../context';
 
 interface MapperFunc<U> {
   (value: any, index?: number, array?: any[]): U;
-}
-
-interface PipedContext {
-  piped?: boolean;
-  chain?: any[];
 }
 
 export function map(
@@ -22,12 +18,9 @@ export function map(
 
     if (isPiped(this) && this.chain) {
       const operator = this.chain.shift();
-      const res = !!operator
+      return !!operator
         ? operator.call(this, getResult(data))
         : getResult(data);
-
-      //console.log('PIPED: ', res);
-      return res;
     }
     return Promise.resolve(getResult(data));
   };
