@@ -53,21 +53,17 @@ describe('parallel', () => {
     expect(chain).resolves.toEqual(expected);
   });
 
-  /*it('should be pipeable', () => {
-    function addOne(val: number): number {
-      return val + 1;
-    }
-
+  it('should be pipeable', () => {
     const initial = 7;
     const expected = 120;
-    const pipeContext = { piped: true };
+    const pipeContext = { piped: true, chain: [] };
 
     const pipedParallel = parallel(
       secondsPerDaysSync,
       generateNumberArrayAsync
     ).bind(pipeContext);
 
-    expect(pipedParallel(initial)).toEqual(expected);
+    expect(pipedParallel(initial)).resolves.toEqual(expected);
   });
 
   it('should work inside pipe', () => {
@@ -78,5 +74,5 @@ describe('parallel', () => {
       .then(divide);
 
     expect(chain).resolves.toEqual(expected);
-  });*/
+  });
 });

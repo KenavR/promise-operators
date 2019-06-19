@@ -1,4 +1,5 @@
-import { isPromise } from '../utils';
+import { isPromise, isPiped } from '../utils';
+import { PipedContext } from '../context';
 
 export function parallel(
   ...promises: Function[]
@@ -7,6 +8,12 @@ export function parallel(
     return isPromise(value) ? value : Promise.resolve(value);
   }
 
-  return (value: any) =>
-    Promise.all(promises.map(p => p(value)).map(toPromise));
+  return function doWork(this: PipedContext, value: any): any | Promise<any> {
+    if (isPiped(this) && this.chain) {
+      const operator = this.chain.shift();
+      const all$ = Promise.all(promises.map(p => p(value)).map(toPromise));
+      return !!operator ? all$.then(operator.bind(this)) : all$;
+    }
+    return Promise.all(promises.map(p => p(value)).map(toPromise));
+  };
 }
