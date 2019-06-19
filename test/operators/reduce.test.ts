@@ -39,7 +39,7 @@ describe('reduce', () => {
 
     const initial = [1, 2, 3];
     const expected = 6;
-    const pipeContext = { piped: true };
+    const pipeContext = { piped: true, chain: [] };
 
     const pipedReduce = reduce(sum, 0).bind(pipeContext);
 
