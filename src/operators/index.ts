@@ -5,3 +5,4 @@ export * from './parallel';
 export * from './pipe';
 export * from './reduce';
 export * from './tap';
+export * from './throw-if';
