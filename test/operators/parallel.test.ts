@@ -56,7 +56,10 @@ describe('parallel', () => {
   it('should be pipeable', () => {
     const initial = 7;
     const expected = 120;
-    const pipeContext = { piped: true, chain: [] };
+    const pipeContext = {
+      piped: true,
+      chain: [divide]
+    };
 
     const pipedParallel = parallel(
       secondsPerDaysSync,
