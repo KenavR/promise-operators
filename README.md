@@ -26,11 +26,11 @@ All functions return a Promise making it simple to chain them.
 <dt><a href="#map">map</a></dt>
 <dd><p>Maps an array or value into a new one using a specified function</p></dd>
 <dt><a href="#filter">filter</a></dt>
-<dd><p>Either filters an array or throws an error if an object does pass the condition</p></dd>
+<dd><p>Either filters an array or throws an error if an object doesn't pass the condition</p></dd>
 <dt><a href="#reduce">reduce</a></dt>
 <dd><p>Either reduces an array or runs the passed object through the reducer function</p></dd>
 <dt><a href="#pipe">pipe</a></dt>
-<dd><p>Enables the use of operators without creating unnecessary multiple Promises along the way</p></dd>
+<dd><p>Enables the use of operators without creating unnecessary Promises along the way</p></dd>
 <dt><a href="#flatMap">flatMap</a></dt>
 <dd><p>Maps an array or value into a new one using a function that returns a Promise (the Promise gets resolved)</p></dd>
 <dt><a href="#parallel">parallel</a></dt>
@@ -43,7 +43,7 @@ All functions return a Promise making it simple to chain them.
 
 ### map
 
-Take a mapping function and an array or object as value. If an array is passed it runs through the array and applies the mapping function to each value. If an object is passed the mapping function is applied once on the object.
+Takes a mapping function and an array or object as value. If an array is passed it runs through the array and applies the mapping function to each value. If an object is passed the mapping function is applied once on the object.
 
 | Param  | Type                  | Description                                                          |
 | ------ | --------------------- | -------------------------------------------------------------------- |
@@ -145,7 +145,7 @@ Promise.resolve([1, 2, 3, 4, 5])
 
 ### flatMap
 
-Take a mapping function that returns a Promise and an array or object as value. If an array is passed it runs through the array and applies the mapping function to each value. If an object is passed the mapping function is applied once on the object. The inner promises are resolved before returning a single Promise.
+Takes a mapping function that returns a Promise and an array or object as value. If an array is passed it runs through the array and applies the mapping function to each value. If an object is passed the mapping function is applied once on the object. The inner promises are resolved before returning a single Promise.
 
 | Param  | Type                  | Description                                                         |
 | ------ | --------------------- | ------------------------------------------------------------------- |
@@ -168,7 +168,7 @@ Promise.resolve([1, 2, 3])
 
 ### parallel
 
-Take an array of functions and runs them parallel all receiving the same initial value
+Takes an array of functions and runs them parallel all receiving the same initial value
 
 | Param   | Type                    | Description                      |
 | ------- | ----------------------- | -------------------------------- |
