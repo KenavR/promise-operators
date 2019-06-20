@@ -1,18 +1,30 @@
 {
   "name": "@kenavr/promise-operators",
   "version": "0.1.0",
-  "description": "",
+  "description": "A couple of rxjs inspired operators for promises",
   "main": "dist/index.js",
+  "devDependencies": {
+    "jest": "^24.8.0",
+    "ts-jest": "^24.0.2",
+    "typescript": "^3.5.1"
+  },
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "test": "jest"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KenavR/promise-operators.git"
+  },
+  "keywords": [
+    "promise",
+    "promise-chain",
+    "operators"
+  ],
   "author": "KenavR",
   "license": "MIT",
-  "devDependencies": {
-    "@types/jest": "^24.0.13",
-    "jest": "^24.8.0",
-    "ts-jest": "^24.0.2",
-    "typescript": "^3.5.1"
-  }
+  "bugs": {
+    "url": "https://github.com/KenavR/promise-operators/issues"
+  },
+  "homepage": "https://github.com/KenavR/promise-operators#readme"
 }
