@@ -4,9 +4,10 @@
   "description": "A couple of rxjs inspired operators for promises",
   "main": "dist/index.js",
   "devDependencies": {
-    "jest": "^24.8.0",
-    "ts-jest": "^24.0.2",
-    "typescript": "^3.5.1"
+    "@types/jest": "^24.0.21",
+    "jest": "^24.9.0",
+    "ts-jest": "^24.1.0",
+    "typescript": "^3.6.4"
   },
   "scripts": {
     "build": "tsc -p tsconfig.json",
