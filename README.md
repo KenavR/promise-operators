@@ -39,6 +39,8 @@ All functions return a Promise making it simple to chain them.
 <dd><p>Throws an error if the passed data doesn't meet the condition</p></dd>
 <dt><a href="#tap">tap</a></dt>
 <dd><p>Executes a side effect without modifying the passed data</p></dd>
+<dt><a href="#log">log</a></dt>
+<dd><p>Logs a string without modifying the passed data</p></dd>
 </dl>
 
 ### map
@@ -246,4 +248,32 @@ let counter = 0;
 Promise.resolve([2, 3, 4])
   .then(tap(val => counter++))
   .then(/* [2, 3, 4] */);
+```
+
+### log
+
+Logs a string to the console without modifying the passed data
+
+| Param    | Type                  | Description                                                                       |
+| -------- | --------------------- | --------------------------------------------------------------------------------- |
+| function | <code>Function</code> | Function taking the value as parameter and returning the log message as string    |
+| value    | <code>\*</code>       | Data passed to the function                                                       |
+
+**Isolated Example**
+
+```js
+tap(val => `Value: ${val}`)(10) // Value: 10
+  .then(/* 10 */);
+
+// Console output: "Value: 10"  
+```
+
+**Example**
+
+```js
+Promise.resolve([2, 3, 4])
+  .then(log(val => `The returned values are ${val}`))
+  .then(/* [2, 3, 4] */);
+
+// Console output: "The returned values are [2, 3, 4]"  
 ```
